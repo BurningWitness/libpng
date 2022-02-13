@@ -1,0 +1,79 @@
+name:                libpng
+version:             0.1.0.0
+github:              "BurningWitness/libpng"
+license:             BSD3
+author:              "Oleksii Divak"
+maintainer:          "Oleksii Divak <frozenwitness@gmail.com>"
+copyright:           "2022 Oleksii Divak"
+
+extra-source-files:
+- README.md
+
+description:         Please see the README on GitHub at <https://github.com/githubuser/libpng#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- zlib
+
+library:
+  source-dirs: src
+
+  include-dirs: libpng
+  c-sources:
+  - libpng/png.c
+  - libpng/pngerror.c
+  - libpng/pngget.c
+  - libpng/pngmem.c
+  - libpng/pngpread.c
+  - libpng/pngread.c
+  - libpng/pngrio.c
+  - libpng/pngrtran.c
+  - libpng/pngrutil.c
+  - libpng/pngset.c
+  - libpng/pngtrans.c
+  - libpng/pngwio.c
+  - libpng/pngwrite.c
+  - libpng/pngwtran.c
+  - libpng/pngwutil.c
+
+tests:
+  generator:
+    main:                Generator.hs
+    source-dirs:         test/generator
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - attoparsec
+    - bytestring
+    - containers
+    - libpng
+    - scientific
+
+  dynamic:
+    main:                Dynamic.hs
+    source-dirs:         test/dynamic
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - libpng
+    include-dirs: libpng
+    c-sources:
+    - libpng/png.c
+    - libpng/pngerror.c
+    - libpng/pngget.c
+    - libpng/pngmem.c
+    - libpng/pngpread.c
+    - libpng/pngread.c
+    - libpng/pngrio.c
+    - libpng/pngrtran.c
+    - libpng/pngrutil.c
+    - libpng/pngset.c
+    - libpng/pngtrans.c
+    - libpng/pngwio.c
+    - libpng/pngwrite.c
+    - libpng/pngwtran.c
+    - libpng/pngwutil.c
