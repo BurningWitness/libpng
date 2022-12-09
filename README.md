@@ -1,4 +1,4 @@
-### This library is unfinished
+### This library is unfinished (and arguably impossible to finish)
 
 Since `libpng` uses `setjmp`/`longjmp` for error handling and there is no way to escape this, either every single call that **may** throw an error needs to be wrapped at the FFI level or these bindings need to be mid-level, wrapping entire C sequences.
 
